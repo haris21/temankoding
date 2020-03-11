@@ -1,0 +1,53 @@
+// plugins {
+// 	id 'org.springframework.boot' version '2.2.5.RELEASE'
+// 	id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+// 	id 'java'
+// }
+
+
+group = 'com.haris.temankoding'
+version = '0.0.1-SNAPSHOT'
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+sourceCompatibility = '1.8'
+
+buildscript {
+   ext {
+      springBootVersion = '2.2.5.RELEASE'
+   }
+   repositories {
+      mavenCentral()
+   }
+   dependencies {
+      classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+   }
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compile('com.linecorp.bot:line-bot-api-client:1.20.0')
+    compile('com.linecorp.bot:line-bot-model:1.20.0')
+   compile('org.apache.httpcomponents:httpclient:4.5.2')
+   compile('org.apache.httpcomponents:httpasyncclient:4.1.2')
+   compile('org.apache.commons:commons-lang3:3.7')
+   compile('org.apache.commons:commons-text:1.3')
+   compile('org.springframework:spring-jdbc')
+   compile('org.postgresql:postgresql')
+   compile('org.springframework.boot:spring-boot-starter-data-rest')
+   compile('org.jsoup:jsoup:1.8.3')
+   compile group: 'commons-io', name: 'commons-io', version: '2.6'
+   testCompile('org.springframework.boot:spring-boot-starter-test')
+
+}
+
+test {
+	useJUnitPlatform()
+}
